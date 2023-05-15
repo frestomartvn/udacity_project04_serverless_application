@@ -19,6 +19,15 @@ export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
   return todosAccess.getAllTodos(userId)
 }
 
+// Search todo function
+export async function getTodosBySearch(
+  userId: string,
+  query: string
+): Promise<TodoItem[]> {
+  logger.info('Get todos for search function called.')
+  return await todosAccess.getTodosBySearch(userId, query)
+}
+
 // Create todo function
 export async function createTodo(
   newTodo: CreateTodoRequest,
